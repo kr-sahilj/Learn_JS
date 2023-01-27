@@ -469,7 +469,7 @@ console.log(updateRecords(5439,"tracks","test"));
 
 */
 
-
+/*
 //loops
 
 //while
@@ -539,3 +539,367 @@ function multiplyAll(arr){
 var product = multiplyAll([[1,2],[3,4],[5,6,7]]);
 console.log(product);
 
+*/
+/*
+// profile lookup
+
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Sahil",
+        "lastName": "Jaiswal",
+        "number": "0543236553",
+        "likes": ["Rap Music", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Mandavi",
+        "lastName": "Laine",
+        "number": "0543236563",
+        "likes": ["Burger", "Doctor", "Moti Daman"]
+    }
+]
+function lookUpProfile(name, prop){
+    for(var i=0;i<contacts.length;i++){
+        if(contacts[i].firstName === name){
+            return contacts[i][prop] || "No Such Property";
+        }
+    }
+    return "No such Contacts";
+}
+
+var data = lookUpProfile("Akira", "likes");
+
+console.log(data);
+
+*/
+
+
+/*
+
+//Inbuild Function
+
+
+// Random Number
+Math.floor(Math.random()*20);
+function randomWholeNum(){
+    return Math.floor(Math.random()*20);
+}
+console.log(randomWholeNum());
+
+function randomRange(myMin , myMax){
+    return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+console.log(randomRange(10, 20));
+
+//parseInt
+
+console.log(parseInt("56"));
+
+function convertToInteger(str){
+    return parseInt(str,2);
+}
+console.log(convertToInteger("10011"));
+
+// var can be used to declare variable more than once with same name 
+// but it is not possible in let
+
+// using let
+function checkScope() {
+    "use Strict";
+    let i = "Function scope";
+    if(true){
+        let i ="Block scope";
+        console.log("Block Scope i is: ", i);
+    }
+    console.log("Function Scope i is: ",i);
+    return i;
+}
+ checkScope();
+
+// using var
+
+function checkScope() {
+    "use Strict";
+    var i = "Function scope";
+    if(true){
+        var i ="Block scope";
+        console.log("Block Scope i is: ", i);
+    }
+    console.log("Function Scope i is: ",i);
+    return i;
+}
+ checkScope();
+
+ //using const
+  
+ // if we declare any variable with const then we can't change it 
+
+ function printManyTimes(str){
+    "use strict";
+    const sentence = str + " is cool!";
+    // sentence = str + " is amazing!";
+
+    for(var i=0;i<str.length;i++){
+        console.log(sentence);
+    }
+ }
+ printManyTimes("Knackroot");
+
+
+ const s =[5,7,2];
+ function editInPlace(){
+    "use strict";
+
+    // s =[2,5,7] this is not possible
+
+    s[0]=2;
+    s[1]=5;
+    s[2]=7;
+ }
+
+ editInPlace();
+ console.log(s);
+
+ // prevent object mutation
+
+ function freezeObj(){
+    "use strict";
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+
+    Object.freeze(MATH_CONSTANTS);
+
+    try {
+        MATH_CONSTANTS.PI =99;
+    }
+    catch  (ex) {
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+ }
+ const PI = freezeObj();
+ console.log(PI);
+
+ */
+/*
+ // Arrow Function
+
+var magic = () => new Date();
+console.log(magic);
+
+// concat using arrow function
+var myConcat = (arr,arr1) => arr.concat(arr1);
+
+console.log(myConcat([1,2], [3,4,5]));
+
+/*
+
+// rest , spread, and destructing Assignments
+const realNumbrArray = [4, 5.6, -9.8, 3.14, 42,6,-2];
+
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num>0).map( x => x*x);
+    return squaredIntegers;
+}
+const squaredIntegers = squareList(realNumbrArray);
+console.log(squaredIntegers);
+
+
+//increment function
+const increment = (function(){
+    return function increment(number,value =1){
+        return number + value;
+    };
+})();
+
+console.log(increment(5,2));
+console.log(increment(5));
+
+// using rest operator
+
+const sum = (function() {
+    return function sum(...args){
+        return args.reduce((a,b) => a+b, 0);
+    };
+})();
+console.log(sum(1,2,3));
+
+// using spread operator
+
+const arr1 = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
+let arr2;
+(function(){
+    arr2 = [...arr1];
+    arr1[0] = 'potato';
+})();
+console.log(arr2);
+console.log(arr1);
+
+
+//Destructing Assignment
+
+var voxel = {a: 3.6, b: 7.4, c:6.54 };
+
+const voxel1 = { x:a, y:b, z:c } = voxel;
+console.log(voxel1);
+
+
+const LOCAL_FORECAST = {
+    today: {min: 72, max: 83},
+    tommorrow : {min: 73.3, max : 84.6}
+};
+
+function getMaxOfTmrw(forecast){
+    "use strict";
+
+    const {tommorrow: {max: maxOfTommorrow}} = forecast;
+    return maxOfTommorrow;
+}
+console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
+const [z,x, , y] = [1,2,3,4,5,6];
+console.log(z,x,y);
+
+*/
+
+/*
+//Template Literals
+
+const person = {
+    name: "sahil Jaiswa",
+    age : 21
+};
+
+const greeting = `Hello, my name is ${person.name}! I am ${person.age} years old.`;
+
+console.log(greeting);
+
+*/
+
+/*
+
+//using class
+
+// Constructor
+
+class SpaceShuttle {
+   constructor(targetPlanet){
+    this.targetPlanet = targetPlanet;
+   }
+}
+var zeus = new SpaceShuttle('Jupiter');
+console.log(zeus.targetPlanet);
+
+function makeClass() {
+    class Thermostat{
+        constructor(temp){
+            this._temp = 5/9 * (temp-32);
+        }
+        get temperature(){
+            return this._temp;
+        }
+        set temperature(updatedTemp){
+            this._temp=updatedTemp;
+        }
+    }
+    return Thermostat;
+}
+const Thermostat = makeClass();
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+console.log(temp);
+thermos.temperature =26;
+temp = thermos.temperature;
+console.log(temp);
+
+*/
+
+/*
+
+//import and export
+
+var capitalizeString = require("./string_function.js");
+const cap = capitalizeString("hello!");
+
+console.log(cap);
+
+
+
+const capitalizeString = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+export { capitalizeString };
+
+export const foo = "bar";
+export const bar = "foo";
+
+console.log(foo);
+
+import everything
+import * as capitalizaString from "capitaliz_string";
+
+import substract from "math_functions";
+
+subtract(7,4);
+*/
+
+/*
+// Promise
+
+function func1(){
+    return new Promise(function(resolve, reject) {
+        setTimeout(() => {
+            const error = false;
+            if(!error){
+                console.log("Function: Your promise has been resolved")
+                resolve();
+            }
+            else{
+                console.log("Function:  Your promise has not been resolved");
+                reject("sorry not fulfilled");
+            }
+        },2000);
+    }) 
+}
+
+func1().then(function(){
+    console.log("Sahil :Thanks for resolving");
+}).catch(function(){
+    console.log("Sahil: Very bad bro" + error);
+})
+
+const uno = () => {
+    console.log("I am One");
+};
+const dos = () => {
+    return new Promise(function(resolve, reject)  {
+        setTimeout(() => {
+            resolve("I am two");
+        },3000);
+    });
+};
+const tres = () => {
+    console.log("I am Three");
+};
+
+const callMe = async() => {
+
+    let valOne = uno();
+    console.log(valOne);
+
+    let valTwo = await dos();
+    console.log(valTwo);
+
+    let valThree = tres();
+    console.log(valThree);
+};
+
+callMe();
+
+*/
